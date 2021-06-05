@@ -1,0 +1,73 @@
+﻿<Window x:Class="StrategyOfFate.MainWindow" Loaded="OnWindowLoaded"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StateChanged="OnWindowStateChanged"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Foreground="{StaticResource BaseForeground}"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Closed="OnWindowClosed"
+        xmlns:local="clr-namespace:StrategyOfFate" mc:Ignorable="d" Background="{StaticResource WindowBackground}"
+        Title="MainWindow" Width="800" Height="500" 
+        WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CornerRadius="0" GlassFrameThickness="4" ResizeBorderThickness="7" CaptionHeight="32"/>
+    </WindowChrome.WindowChrome>
+    <Border x:Name="ExternalBorder" BorderThickness="1" BorderBrush="{StaticResource ActiveBorderBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Height="32" Background="{StaticResource ActiveBorderBrush}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="16" VerticalAlignment="Center" Foreground="White" Opacity="0.9" Margin="10,0">Стратегия судьбы</TextBlock>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                        <StackPanel.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Width" Value="50"/>
+                                <Setter Property="Opacity" Value="0.8"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate> 
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Opacity" Value="1"/>
+                                        <Setter Property="Background" Value="{StaticResource FocusElement}"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource FocusElementBorder}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource ActiveElement}"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource ActiveElementBorder}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button WindowChrome.IsHitTestVisibleInChrome="True" Click="OnMinimizeClick">
+                            <Image Height="20" Source="Resources/window-minimize.png"/>
+                        </Button>
+                        <Button WindowChrome.IsHitTestVisibleInChrome="True" Click="OnNormalMaximizeClick">
+                            <Grid>
+                                <Image Height="20" Source="Resources/window-maximize.png" x:Name="MaximizeImage"/>
+                                <Image Height="20" Source="Resources/window-restore.png" Visibility="Collapsed" x:Name="NormalImage"/>
+                            </Grid>
+                        </Button>
+                        <Button WindowChrome.IsHitTestVisibleInChrome="True" Click="OnCloseClick">
+                            <Image Height="22" Source="Resources/close.png"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Frame Source="HomePage.xaml" NavigationUIVisibility="Hidden" Grid.Row="1" x:Name="PageFrame"/>
+        </Grid>
+    </Border>
+</Window>

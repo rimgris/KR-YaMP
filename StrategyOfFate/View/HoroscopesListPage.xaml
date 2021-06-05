@@ -1,0 +1,88 @@
+﻿<Page x:Class="StrategyOfFate.HoroscopesListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StrategyOfFate" Foreground="{StaticResource BaseForeground}"
+      mc:Ignorable="d" Background="{StaticResource WindowBackground}"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HoroscopesListPage">
+
+    <Grid>
+        <Button Style="{StaticResource PlainButton}" VerticalAlignment="Top" HorizontalAlignment="Left" Click="OnReturnClick">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Resources/chevron-left.png" Width="48" Margin="5"/>
+                <TextBlock FontSize="18" Foreground="White" VerticalAlignment="Center" Margin="5,0">Назад</TextBlock>
+            </StackPanel>
+        </Button>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Center" FontSize="50" FontFamily="{StaticResource Calligraph}" Margin="10">Выберите гороскоп</TextBlock>
+            <Viewbox Grid.Row="1" MaxWidth="1000">
+                <Grid Width="600" Height="360">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Margin="14" Opacity="1" Style="{StaticResource PlainButton}" Click="OnDruidClick">
+                        <StackPanel>
+                            <Image Source="Resources\Horoscopes\Druid.png"/>
+                            <TextBlock FontSize="13" HorizontalAlignment="Center" Margin="0,10,0,5">Друидов</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="14" Opacity="1" Style="{StaticResource PlainButton}" Click="OnFlowerClick" Grid.Column="1">
+                        <StackPanel>
+                            <Image Source="Resources\Horoscopes\Flower.png"/>
+                            <TextBlock FontSize="13" HorizontalAlignment="Center" Margin="0,10,0,5">Цветочный</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="14" Opacity="1" Style="{StaticResource PlainButton}" Click="OnIndianClick" Grid.Column="2">
+                        <StackPanel>
+                            <Image Source="Resources\Horoscopes\India.png"/>
+                            <TextBlock FontSize="13" HorizontalAlignment="Center" Margin="0,10,0,5">Индийский</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="14" Opacity="1" Style="{StaticResource PlainButton}" Click="OnChineeseClick" Grid.Row="1">
+                        <StackPanel>
+                            <Image Source="Resources\Horoscopes\Chinese.png"/>
+                            <TextBlock FontSize="13" HorizontalAlignment="Center" Margin="0,10,0,5">Китайский</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="14" Opacity="1" Style="{StaticResource PlainButton}" Click="OnJapaneseClick" Grid.Row="1" Grid.Column="1">
+                        <StackPanel>
+                            <Image Source="Resources\Horoscopes\Japanese.png"/>
+                            <TextBlock FontSize="13" HorizontalAlignment="Center" Margin="0,10,0,5">Японский</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="14" Opacity="1" Style="{StaticResource PlainButton}" Click="OnNumerologicalClick" Grid.Row="1" Grid.Column="2">
+                        <StackPanel>
+                            <Image Source="Resources\Horoscopes\Numerologic.png"/>
+                            <TextBlock FontSize="13" HorizontalAlignment="Center" Margin="0,10,0,5">Нумерологический</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="14" Opacity="1" Style="{StaticResource PlainButton}" Click="OnZodiacClick" Grid.Row="1" Grid.Column="3">
+                        <StackPanel>
+                            <Image Source="Resources\Horoscopes\Zodiac.png"/>
+                            <TextBlock FontSize="13" HorizontalAlignment="Center" Margin="0,10,0,5">Зодиакальный</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="14" Opacity="1" Style="{StaticResource PlainButton}" Click="OnZoroClick" Grid.Column="3">
+                        <StackPanel>
+                            <Image Source="Resources\Horoscopes\Zoro.png"/>
+                            <TextBlock FontSize="13" HorizontalAlignment="Center" Margin="0,10,0,5">Зороастрийский</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </Viewbox>
+        </Grid>
+    </Grid>
+</Page>

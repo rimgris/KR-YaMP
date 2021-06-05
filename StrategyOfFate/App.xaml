@@ -1,0 +1,87 @@
+﻿<Application x:Class="StrategyOfFate.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:StrategyOfFate" Startup="OnApplicationStartup"
+             StartupUri="View\HostWindow.xaml">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="WindowBackground" Color="#000000"/>
+        <SolidColorBrush x:Key="ActiveBorderBrush" Color="#FFBB4747"/>
+        <SolidColorBrush x:Key="DeactivatedBorderBrush" Color="#777777"/>
+        <SolidColorBrush x:Key="BaseForeground" Color="#CDCDCD"/>
+        <SolidColorBrush x:Key="ActiveElement" Color="#FFFD8074"/>
+        <SolidColorBrush x:Key="ActiveElementBorder" Color="#FFF9CCBF"/>
+        <SolidColorBrush x:Key="FocusElement" Color="#FFCF5454"/>
+        <SolidColorBrush x:Key="FocusElementBorder" Color="#FFF77C35"/>
+        <SolidColorBrush x:Key="InputElementBackground" Color="#FF363636"/>
+        <SolidColorBrush x:Key="InputElementBorder" Color="#FF616161"/>
+
+        <SolidColorBrush x:Key="ColoredElementBaseForeground" Color="#ffffff"/>
+        <SolidColorBrush x:Key="ColoredElementFocusedForeground" Color="#ffffff"/>
+        <SolidColorBrush x:Key="ColoredElementActiveForeground" Color="#ffffff"/>
+
+        <FontFamily x:Key="Calligraph">/View/Resources/#Calligraph</FontFamily>
+
+        <Style TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="TextElement.FontSize" Value="18"/>
+            <Setter Property="Background" Value="{StaticResource ActiveBorderBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource ColoredElementBaseForeground}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource ColoredElementFocusedForeground}"/>
+                    <Setter Property="Background" Value="{StaticResource FocusElement}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource ColoredElementActiveForeground}"/>
+                    <Setter Property="Background" Value="{StaticResource ActiveElement}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{StaticResource DeactivatedBorderBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="PlainButton">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Opacity" Value="0.6"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent">
+                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.8"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Opacity" Value="1"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.3"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </Application.Resources>
+</Application>

@@ -1,0 +1,24 @@
+﻿<Page x:Class="StrategyOfFate.DatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StrategyOfFate" Loaded="OnPageLoaded"
+      mc:Ignorable="d" Foreground="{StaticResource BaseForeground}"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DatePage" Background="{StaticResource WindowBackground}">
+    <Grid>
+        <Button Style="{StaticResource PlainButton}" VerticalAlignment="Top" HorizontalAlignment="Left" Click="OnReturnClick" x:Name="ReturnButton">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Resources/chevron-left.png" Width="48" Margin="5"/>
+                <TextBlock FontSize="18" Foreground="White" VerticalAlignment="Center" Margin="5,0">Отменить</TextBlock>
+            </StackPanel>
+        </Button>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock FontFamily="{StaticResource Calligraph}" HorizontalAlignment="Center" FontSize="36">Введите дату рождения</TextBlock>
+            <TextBox x:Name="DateTextBox" MaxLength="10" PreviewTextInput="OnPreviewDateTextInput" TextChanged="OnDateTextChanged" BorderThickness="2" Margin="20" BorderBrush="{StaticResource InputElementBorder}" Background="{StaticResource InputElementBackground}"
+                     Width="300" Height="40" LostFocus="OnDateTextBoxLostFocus" GotFocus="OnDateTextBoxGotFocus" FontSize="18" Foreground="{StaticResource BaseForeground}" FontWeight="SemiBold" Padding="4" TextAlignment="Center">xx/xx/xxxx</TextBox>
+            <Button Width="300" Padding="6" Click="OnSaveClick" x:Name="SaveButton">Сохранить</Button>
+        </StackPanel>
+    </Grid>
+</Page>
